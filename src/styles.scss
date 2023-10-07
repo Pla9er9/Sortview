@@ -30,9 +30,9 @@ button {
     border: solid 2px rgb(39, 39, 39);
     border-bottom: solid 2px #000;
     transition: 200ms;
-}
 
-button:hover {
-    background: rgb(255, 237, 237);
-    transform: scale(1.1)
+    &:hover {
+        background: rgb(255, 237, 237);
+        transform: scale(1.1)
+    }
 }

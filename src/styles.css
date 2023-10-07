@@ -1,0 +1,38 @@
+body {
+    background-color: #242424;
+}
+
+#boxes {
+    width: max-content;
+    height: 400px;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: rgba(224, 224, 224, 0.075);
+    flex-wrap: wrap;
+    transform:rotate(180deg);
+    border-top: solid 25px rgb(34, 33, 33);
+}
+
+.box {
+    margin: 0px 1px;
+    height: 130px;
+    width: 4px;
+    background-color: grey;
+}
+
+button {
+    margin: 10px 5px;
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+    background-color: fff;
+    border-radius: 5px;
+    border: solid 2px rgb(39, 39, 39);
+    border-bottom: solid 2px #000;
+    transition: 200ms;
+}
+
+button:hover {
+    background: rgb(255, 237, 237);
+    transform: scale(1.1)
+}

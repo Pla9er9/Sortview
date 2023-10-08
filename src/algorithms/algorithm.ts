@@ -2,7 +2,7 @@ import Box from "../box";
 import Options from "../options";
 import { sleep, generateBoxes, removeAllBoxes } from "../utils";
 
-abstract class Algorithm {
+export default abstract class Algorithm {
     protected boxes: Box[] = [];
     protected stop: boolean = false;
 
@@ -49,5 +49,3 @@ abstract class Algorithm {
         }
     }
 }
-
-export default Algorithm;

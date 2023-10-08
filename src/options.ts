@@ -1,4 +1,4 @@
-class Options {
+export default class Options {
     static PAUSE_TIME = 10;
     static BOX_QUANTITY = 205;
     static MAX_BOX_HEIGHT = 30;
@@ -6,6 +6,10 @@ class Options {
     static defaultColor = "#fff";
     static activeColor = "orangered"
     static checkColor = "green"
-}
 
-export default Options;
+    static saveToStorage() {
+        localStorage.setItem("defaultColor", this.defaultColor)
+        localStorage.setItem("activeColor", this.activeColor)
+        localStorage.setItem("checkColor", this.checkColor)
+    }
+}

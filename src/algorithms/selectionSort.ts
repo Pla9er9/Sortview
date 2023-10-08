@@ -1,6 +1,6 @@
 import Algorithm from "./algorithm";
 
-class SelectionSort extends Algorithm {
+export default class SelectionSort extends Algorithm {
     constructor() {
         super();
     }
@@ -26,5 +26,3 @@ class SelectionSort extends Algorithm {
         }
     }
 }
-
-export default SelectionSort;

@@ -1,6 +1,6 @@
 import Options from "./options";
 
-class Box {
+export default class Box {
     private boxId: number;
     height: number;
     color: string;
@@ -28,5 +28,3 @@ class Box {
         div.style.height = this.getHeightInPx();
     }
 }
-
-export default Box;

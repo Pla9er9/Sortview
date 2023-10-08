@@ -1,6 +1,6 @@
 import Algorithm from "./algorithm";
 
-class BubbleSort extends Algorithm {
+export default class BubbleSort extends Algorithm {
     constructor() {
         super();
     }
@@ -25,5 +25,3 @@ class BubbleSort extends Algorithm {
         }
     }
 }
-
-export default BubbleSort;

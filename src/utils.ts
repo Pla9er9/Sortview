@@ -1,15 +1,15 @@
 import Box from "./box";
 import Options from "./options";
 
-function sleep(ms: number) {
+export function sleep(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function getRandomNumber(max: number) {
+export function getRandomNumber(max: number) {
     return Math.floor(Math.random() * max);
 }
 
-function generateBoxes(): Box[] {
+export function generateBoxes(): Box[] {
     let boxArray: Box[] = [];
     for (let i = 0; i < Options.BOX_QUANTITY; i++) {
         let random = getRandomNumber(Options.MAX_BOX_HEIGHT);
@@ -25,12 +25,10 @@ function generateBoxes(): Box[] {
     return boxArray;
 }
 
-function removeAllBoxes(): void {
+export function removeAllBoxes(): void {
     var child = Options.BOXES_HTML_ELEMENT?.lastElementChild;
     while (child) {
         Options.BOXES_HTML_ELEMENT?.removeChild(child);
         child = Options.BOXES_HTML_ELEMENT?.lastElementChild;
     }
 }
-
-export { sleep, getRandomNumber, generateBoxes, removeAllBoxes };

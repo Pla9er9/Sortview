@@ -1,38 +1,119 @@
 body {
-    background-color: #242424;
+    margin: 0px;
+    background-color: #000;
+    background-image: url('/matrix.gif');
+    background-repeat: no-repeat;
 }
 
-#boxes {
-    width: max-content;
-    height: 400px;
+
+main {
+    background-color: #000000f5;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    margin: auto;
+    width: 100%;
+    height: 100vh;
     display: flex;
-    flex-direction: row-reverse;
-    background-color: rgba(224, 224, 224, 0.075);
-    flex-wrap: wrap;
-    transform:rotate(180deg);
-    border-top: solid 25px rgb(34, 33, 33);
-}
+    justify-content: space-between;
+    align-items: center;
 
-.box {
-    margin: 0px 1px;
-    height: 130px;
-    width: 4px;
-    background-color: grey;
-}
+    #boxes {
+        margin: auto;
+        width: 1200px;
+        height: 600px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        background-color: #020202;
+        flex-wrap: wrap;
+        transform: rotate(180deg);
+        border: solid 1px rgba(221, 221, 221, 0.082);
+        border-top: solid 15px rgba(185, 236, 236, 0.87);
+        overflow-x: auto;
 
-button {
-    margin: 10px 5px;
-    width: 100px;
-    height: 35px;
-    cursor: pointer;
-    background-color: fff;
-    border-radius: 5px;
-    border: solid 2px rgb(39, 39, 39);
-    border-bottom: solid 2px #000;
-    transition: 200ms;
+        .box {
+            margin: 0px 1px;
+            height: 130px;
+            width: 3.5px;
+        }
+    }
 
-    &:hover {
-        background: rgb(255, 237, 237);
-        transform: scale(1.1)
+    #menu {
+        margin-bottom: auto;
+        margin-left: auto;
+        width: 320px;
+        height: 100%;
+        background-color: #fff;
+        border-left: solid 1px #D9D9D9;
+        display: flex;
+        align-items: center;
+        justify-self: flex-end;
+        flex-direction: column;
+
+        h1 {
+            text-align: center;
+            font-family: 'Poiret One', cursive;
+        }
+
+        button {
+            width: calc(100% - 2px);
+            width: 100%;
+            height: 45px;
+            cursor: pointer;
+            background-color: inherit;
+            outline: solid 1px #D9D9D9;
+            border: none;
+            border-radius: 0px;
+            transition: 200ms ease;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+            &:hover {
+                background-color: rgba(0, 255, 255, 0.096);
+            }
+        }
+
+        #options {
+            display: flex;
+            flex-direction: column;
+
+            p {
+                text-align: center;
+                font-family: sans-serif;
+                font-size: 14px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+
+            input {
+                text-align: center;
+                border: none;
+                border-bottom: solid 1px #d1d0d0;
+                padding-bottom: 5px;
+                margin: 6px 0px;
+                outline: none;
+            }
+
+        }
+
+    }
+    #stats {
+        margin-top: auto;
+        width: 100%;
+        height: 45px;
+        border-top: solid 1px rgba(221, 221, 221, 0.425);
+        background-color: #000;
+        display: flex;
+        align-items: center;
+
+        p {
+            color: #fff;
+            margin: 0px 8px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 14px;
+
+            &:first-child {
+                margin: 0px 25px;
+            }
+        }
     }
 }

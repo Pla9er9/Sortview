@@ -1,3 +1,5 @@
+import Options from "./options";
+
 class Box {
     private boxId: number;
     height: number;
@@ -6,7 +8,7 @@ class Box {
     constructor(boxId: number, randomHeight: number) {
         this.boxId = boxId;
         this.height = randomHeight;
-        this.color = "grey";
+        this.color = Options.defaultColor;
     }
 
     getHeightInPx(): string {

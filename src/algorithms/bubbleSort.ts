@@ -19,7 +19,7 @@ class BubbleSort extends Algorithm {
                     await this.showSingleStep(j);
 
                     arr[j + 1].height = temp;
-                    await this.showSingleStep(j + 1);
+                    // await this.showSingleStep(j + 1);
                 }
             }
         }

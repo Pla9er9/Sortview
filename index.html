@@ -5,12 +5,49 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Algorithms</title>
         <link rel="stylesheet" href="./src/styles.scss" />
-        <link rel="shortcut icon" href="/vite.svg" type="image/x-icon">
+        <link rel="shortcut icon" href="/vite.svg" type="image/x-icon" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
-        <div id="boxes"></div>
-        <button id="bubbleSortBtn">Bubble Sort</button>
-        <button id="selectionSortBtn">Selection Sort</button>
+        <main>
+            <div
+                style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 100%;
+                    height: 100%;
+                "
+            >
+                <div id="boxes"></div>
+                <div id="stats">
+                    <p>Bubblesort</p>
+                    <p>Comparison: 0</p>
+                    <p>Array acces: 0</p>
+                </div>
+            </div>
+            <div id="menu">
+                <h1>Algorithms</h1>
+                <button id="bubbleSortBtn">Bubble Sort</button>
+                <button id="selectionSortBtn">Selection Sort</button>
+                <div id="options">
+                    <h1>Options</h1>
+                    <p>Pause time (ms)</p>
+                    <input value="500" />
+                    <p>Default color</p>
+                    <div id="defaultColorPicker"></div>
+                    <p>Active color</p>
+                    <div id="activeColorPicker"></div>
+                    <p>Check color</p>
+                    <div id="checkColorPicer"></div>
+                </div>
+            </div>
+        </main>
         <script type="module" src="./src/main.ts"></script>
     </body>
 </html>

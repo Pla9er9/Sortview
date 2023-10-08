@@ -22,10 +22,10 @@ abstract class Algorithm {
     }
 
     protected async showSingleStep(index: number) {
-        this.boxes[index].color = "green";
+        this.boxes[index].color = Options.activeColor;
         this.boxes[index].reRender();
         await sleep(Options.PAUSE_TIME);
-        this.boxes[index].color = "grey";
+        this.boxes[index].color = Options.defaultColor;
         this.boxes[index].reRender();
     }
 
@@ -35,7 +35,7 @@ abstract class Algorithm {
 
     protected async check() {
         for (let i = 0; i < this.boxes.length; i++) {
-            this.boxes[i].color = "orangered";
+            this.boxes[i].color = Options.checkColor;
             this.boxes[i].reRender();
             await sleep(10);
         }
@@ -44,7 +44,7 @@ abstract class Algorithm {
     protected async clear() {
         await sleep(200);
         for (let i = 0; i < this.boxes.length; i++) {
-            this.boxes[i].color = "grey";
+            this.boxes[i].color = Options.defaultColor;
             this.boxes[i].reRender();
         }
     }

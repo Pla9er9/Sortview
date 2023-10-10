@@ -5,23 +5,28 @@ export default class BubbleSort extends Algorithm {
         super();
     }
 
-    async start() {
-        let arr = this.boxes;
+    protected async start() {
+        let arr = this.bars;
 
         for (var i = 0; i < arr.length; i++) {
-            if (this.stop) this.break;
+            if (this.stop) return;
 
             for (var j = 0; j < arr.length - i - 1; j++) {
+                if (this.stop) return;
+                this.increaseComparison();
                 if (!this.stop && arr[j].height > arr[j + 1].height) {
                     var temp = arr[j].height;
 
+                    this.increaseArrayAcces(3);
+
                     arr[j].height = arr[j + 1].height;
                     await this.showSingleStep(j);
-
                     arr[j + 1].height = temp;
-                    // await this.showSingleStep(j + 1);
                 }
             }
         }
+    }
+    protected getName() {
+        return "Bubble sort";
     }
 }

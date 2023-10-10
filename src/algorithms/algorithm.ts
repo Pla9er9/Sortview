@@ -1,17 +1,27 @@
-import Box from "../box";
+import Bar from "../bar";
 import Options from "../options";
-import { sleep, generateBoxes, removeAllBoxes } from "../utils";
+import { sleep, generateBars, removeAllBars } from "../utils";
 
 export default abstract class Algorithm {
-    protected boxes: Box[] = [];
+    protected bars: Bar[] = [];
     protected stop: boolean = false;
+    protected comparison: number = -1;
+    protected comparisonElement: HTMLElement | null =
+        document.getElementById("comparisonElement");
+    protected arrayAcces: number = -1;
+    protected arrayAccesElement: HTMLElement | null =
+        document.getElementById("arrayAcces");
 
     constructor() {
-        removeAllBoxes();
-        this.boxes = generateBoxes();
+        removeAllBars();
+        this.bars = generateBars();
+        this.setName();
+        this.increaseArrayAcces();
+        this.increaseComparison();
     }
 
     protected abstract start(): void;
+    protected abstract getName(): string;
 
     async run() {
         await this.start();
@@ -21,12 +31,24 @@ export default abstract class Algorithm {
         await sleep(500);
     }
 
+    protected increaseComparison() {
+        this.comparison += 1;
+        if (this.comparisonElement != undefined)
+            this.comparisonElement.innerText = String(this.comparison);
+    }
+
+    protected increaseArrayAcces(value: number = 1) {
+        this.arrayAcces += value;
+        if (this.arrayAccesElement != undefined)
+            this.arrayAccesElement.innerText = String(this.arrayAcces);
+    }
+
     protected async showSingleStep(index: number) {
-        this.boxes[index].color = Options.activeColor;
-        this.boxes[index].reRender();
+        this.bars[index].color = Options.activeColor;
+        this.bars[index].reRender();
         await sleep(Options.PAUSE_TIME);
-        this.boxes[index].color = Options.defaultColor;
-        this.boxes[index].reRender();
+        this.bars[index].color = Options.defaultColor;
+        this.bars[index].reRender();
     }
 
     async break() {
@@ -34,18 +56,25 @@ export default abstract class Algorithm {
     }
 
     protected async check() {
-        for (let i = 0; i < this.boxes.length; i++) {
-            this.boxes[i].color = Options.checkColor;
-            this.boxes[i].reRender();
+        for (let i = 0; i < this.bars.length; i++) {
+            this.bars[i].color = Options.checkColor;
+            this.bars[i].reRender();
             await sleep(10);
         }
     }
 
     protected async clear() {
         await sleep(200);
-        for (let i = 0; i < this.boxes.length; i++) {
-            this.boxes[i].color = Options.defaultColor;
-            this.boxes[i].reRender();
+        for (let i = 0; i < this.bars.length; i++) {
+            this.bars[i].color = Options.defaultColor;
+            this.bars[i].reRender();
+        }
+    }
+
+    private setName() {
+        const algoNameElement = document.getElementById("algoName");
+        if (algoNameElement) {
+            algoNameElement.innerText = this.getName();
         }
     }
 }

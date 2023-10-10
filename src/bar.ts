@@ -1,7 +1,7 @@
 import Options from "./options";
 
-export default class Box {
-    private boxId: number;
+export default class Bar {
+    boxId: number;
     height: number;
     color: string;
 

@@ -1,4 +1,4 @@
-import Box from "./box";
+import Box from "./bar";
 import Options from "./options";
 
 export function sleep(ms: number) {
@@ -9,7 +9,7 @@ export function getRandomNumber(max: number) {
     return Math.floor(Math.random() * max);
 }
 
-export function generateBoxes(): Box[] {
+export function generateBars(): Box[] {
     let boxArray: Box[] = [];
     for (let i = 0; i < Options.BOX_QUANTITY; i++) {
         let random = getRandomNumber(Options.MAX_BOX_HEIGHT);
@@ -25,7 +25,7 @@ export function generateBoxes(): Box[] {
     return boxArray;
 }
 
-export function removeAllBoxes(): void {
+export function removeAllBars(): void {
     var child = Options.BOXES_HTML_ELEMENT?.lastElementChild;
     while (child) {
         Options.BOXES_HTML_ELEMENT?.removeChild(child);

@@ -5,14 +5,18 @@ export default class SelectionSort extends Algorithm {
         super();
     }
 
-    async start() {
-        let arr = this.boxes;
+    protected async start() {
+        let arr = this.bars;
         for (let i = 0; i < arr.length - 1; i++) {
             if (this.stop) return;
             let min = i;
 
             for (let j = i + 1; j < arr.length; j++) {
                 if (this.stop) return;
+                this.increaseComparison();
+                this.increaseArrayAcces(2);
+                await this.showSingleStep(j);
+                await this.showSingleStep(min);
                 if (arr[j].height < arr[min].height) {
                     min = j;
                 }
@@ -24,5 +28,8 @@ export default class SelectionSort extends Algorithm {
             arr[i].height = tmp;
             await this.showSingleStep(i);
         }
+    }
+    protected getName() {
+        return "Selection Sort";
     }
 }

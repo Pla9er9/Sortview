@@ -1,52 +1,57 @@
 import Algorithm from "./algorithms/algorithm";
 import BubbleSort from "./algorithms/bubbleSort";
 import SelectionSort from "./algorithms/selectionSort";
-import Pickr from '@simonwep/pickr';
-import '@simonwep/pickr/dist/themes/monolith.min.css'; 
+import Options from "./options";
+import "@simonwep/pickr/dist/themes/monolith.min.css";
+import { generateBars } from "./utils";
+import setColorPickers from "./colorPickers";
+import ShellSort from "./algorithms/shellSort";
+import CocktailSort from "./algorithms/cocktailSort";
+import InsertionSort from "./algorithms/insertionSort";
 
-document.getElementById("bubbleSortBtn")?.addEventListener("click", bubbleSort);
-document
-    .getElementById("selectionSortBtn")
-    ?.addEventListener("click", selectionSort);
+Options.saveOptionsToStorage();
 
-let algorithm: Algorithm = new BubbleSort();
+let pauseTimeInput = document.getElementById(
+    "pauseTimeInput"
+) as HTMLInputElement;
+pauseTimeInput.value = String(Options.PAUSE_TIME);
+pauseTimeInput?.addEventListener("change", () => {
+    if (pauseTimeInput) Options.PAUSE_TIME = Number(pauseTimeInput.value);
+});
 
-function bubbleSort() {
-    algorithm.break();
-    algorithm = new BubbleSort();
-    runSelectedAlgorithm();
-}
+let arraySizeElement: HTMLElement | null = document.getElementById("arraySize");
+if (arraySizeElement) arraySizeElement.innerText = String(Options.BOX_QUANTITY);
 
-function selectionSort() {
-    algorithm.break();
-    algorithm = new SelectionSort();
-    runSelectedAlgorithm();
-}
+document.querySelectorAll(".algorithBtn").forEach((e) => {
+    e.addEventListener("click", () => {
+        algoSwitch(e.id);
+    });
+});
 
-function runSelectedAlgorithm() {
+generateBars();
+
+let algorithm: Algorithm;
+
+function algoSwitch(name: string) {
+    algorithm?.break();
+    switch (name) {
+        case "bubbleSortBtn":
+            algorithm = new BubbleSort();
+            break;
+        case "selectionSortBtn":
+            algorithm = new SelectionSort();
+            break;
+        case "shellSortBtn":
+            algorithm = new ShellSort();
+            break;
+        case "cocktailSortBtn":
+            algorithm = new CocktailSort();
+            break;
+        case "insertionSortBtn":
+            algorithm = new InsertionSort();
+            break;
+    }
     algorithm.run();
 }
 
-
-const arr = ["#defaultColorPicker", "#activeColorPicker", "#checkColorPicer"]
-
-arr.forEach((e) => {
-    Pickr.create({
-        el: e,
-        theme: 'monolith',
-        components: {
-            preview: true,
-            opacity: true,
-            hue: true,
-    
-            interaction: {
-                hex: true,
-                rgba: true,
-                input: true,
-                clear: true,
-                save: true
-            }
-        }
-    });
-      
-})
+setColorPickers();

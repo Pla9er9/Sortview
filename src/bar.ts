@@ -1,12 +1,12 @@
 import Options from "./options";
 
 export default class Bar {
-    boxId: number;
+    barId: number;
     height: number;
     color: string;
 
-    constructor(boxId: number, randomHeight: number) {
-        this.boxId = boxId;
+    constructor(barId: number, randomHeight: number) {
+        this.barId = barId;
         this.height = randomHeight;
         this.color = Options.defaultColor;
     }
@@ -22,7 +22,7 @@ export default class Bar {
     }
 
     reRender() {
-        let div = document.getElementById(`box${this.boxId}`);
+        let div = document.getElementById(`bar${this.barId}`);
         if (div == null) return;
         div.style.background = this.color;
         div.style.height = this.getHeightInPx();

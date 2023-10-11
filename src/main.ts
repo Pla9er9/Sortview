@@ -20,7 +20,7 @@ pauseTimeInput?.addEventListener("change", () => {
 });
 
 let arraySizeElement: HTMLElement | null = document.getElementById("arraySize");
-if (arraySizeElement) arraySizeElement.innerText = String(Options.BOX_QUANTITY);
+if (arraySizeElement) arraySizeElement.innerText = String(Options.BAR_QUANTITY);
 
 document.querySelectorAll(".algorithBtn").forEach((e) => {
     e.addEventListener("click", () => {

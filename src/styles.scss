@@ -28,7 +28,7 @@ main {
     justify-content: space-between;
     align-items: center;
 
-    #boxes {
+    #bars {
         margin: auto;
         width: 1200px;
         height: 600px;
@@ -42,7 +42,7 @@ main {
         border-top: solid 15px rgba(185, 236, 236, 0.87);
         overflow-x: auto;
 
-        .box {
+        .bar {
             margin: 0px 1px;
             height: 130px;
             width: 7px;

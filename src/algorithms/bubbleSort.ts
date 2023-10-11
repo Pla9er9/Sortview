@@ -22,6 +22,7 @@ export default class BubbleSort extends Algorithm {
                     arr[j].height = arr[j + 1].height;
                     await this.showSingleStep(j);
                     arr[j + 1].height = temp;
+                    await this.showSingleStep(j + 1);
                 }
             }
         }

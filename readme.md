@@ -1,5 +1,5 @@
 # 🔢 Sortview
-Website tak make easy to visualize sorting algorithms
+This website visualize sorting algorithms
 
 <img src="screenshot.png" />
 
